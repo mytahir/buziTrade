@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material" 
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation" 
+             xmlns:local="clr-namespace:buziTrade.Pages" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"             
+             mc:Ignorable="d"
+             x:Class="buziTrade.Pages.RegisterPage"
+             material:MaterialNavigationPage.StatusBarColor="Blue"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <local:MultiTriggerConverter x:Key="dataHasBeenEntered" />
+
+            <xamanimation:FadeInAnimation
+                x:Key="FlexLayoutAnimation"
+                Target="{x:Reference MainPanel}" 
+                Duration="300"/>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid x:Name="MainPanel"
+              BackgroundColor="{StaticResource WelcomeColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <yummy:PancakeView x:Name="PancakeAnimate" 
+                                       BackgroundColor="#FFFFFF" CornerRadius="0,0,0,0"
+                                       Grid.Row="0">
+            <Grid BackgroundColor="#FFFFFF">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <Image Source="Logo.png" 
+               HorizontalOptions="Center" VerticalOptions="Start"
+               WidthRequest="70" 
+               HeightRequest="70" 
+               Margin="0, 40, 0,30" Grid.Row="0"/>
+
+                
+                    <Label Text="*Register" TextColor="Gray" FontSize="Title"
+                           Grid.Row="0"
+                           VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"
+                           Margin="20,0,0,0"/>
+
+                <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0"
+                      Grid.Row="1">
+
+                    <!--<cards:CarouselView IsCyclical="False" 
+                                    ItemSwipedCommand="{Binding OnRegister}">
+                        <cards:CarouselView.ItemsSource>
+
+                            <x:Array Type="{x:Type View}">
+                                <StackLayout>-->
+                    <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Always">
+                        <StackLayout Spacing="30">
+                            <material:MaterialTextField
+                    Placeholder="Full Name" x:Name="FullName"
+                    InputType="Text" MaxLength="10" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False" Text="{Binding FullName}"/>
+
+                            <material:MaterialTextField
+                    Placeholder="Contact Address" x:Name="ConAddress"
+                    InputType="Text" MaxLength="11" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False" Text="{Binding ConAddress}"/>
+
+                            <material:MaterialTextField
+                    Placeholder="Phone Number" x:Name="PhoneNo"
+                    InputType="Telephone" MaxLength="11" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False" Text="{Binding PhoneNo}"/>
+
+                            <material:MaterialTextField
+                    Placeholder="Business Name" x:Name="BusinessName"
+                    InputType="Text" MaxLength="10" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False" Text="{Binding BusinessName}"/>
+                            <material:MaterialTextField
+                    Placeholder="Business Address" x:Name="BusinessAddress"
+                    InputType="Text" MaxLength="20" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False" Text="{Binding BusinessAddress}"/>
+                            <material:MaterialTextField
+                    Placeholder="Business Email" x:Name="BusinessEmail"
+                    InputType="Text" MaxLength="20" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False" Text="{Binding BusinessEmail}"/>
+
+                            <material:MaterialTextField
+                    Placeholder="Password" x:Name="Password"
+                    InputType="Password" MaxLength="8" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False" Text="{Binding Password}"/>
+
+                            <material:MaterialTextField
+                    Placeholder="Re-Password" x:Name="Re_Password"
+                    InputType="Password" MaxLength="8" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False" Text="{Binding RePassword}"/>
+
+                            <material:MaterialButton  BackgroundColor="{StaticResource Scondarycolor}"
+                          CornerRadius="5" Text="Register" 
+                          TextColor="Black"  ButtonType="Elevated"          
+                          x:Name="BtnLog2" HorizontalOptions="End"
+                          VerticalOptions="Start" Command="{Binding RegisterCommand}"
+                          Margin="0,0,0,60" IsEnabled="False">
+                                <Button.Triggers>
+                                    <MultiTrigger TargetType="Button">
+                                        <MultiTrigger.Conditions>
+                                            <BindingCondition Binding="{Binding Source={x:Reference FullName},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                            <BindingCondition Binding="{Binding Source={x:Reference ConAddress},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                            <BindingCondition Binding="{Binding Source={x:Reference PhoneNo},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                            <BindingCondition Binding="{Binding Source={x:Reference BusinessName},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                            <BindingCondition Binding="{Binding Source={x:Reference BusinessAddress},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                            <BindingCondition Binding="{Binding Source={x:Reference BusinessEmail},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                            <BindingCondition Binding="{Binding Source={x:Reference Password},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                            <BindingCondition Binding="{Binding Source={x:Reference Re_Password},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="IsEnabled" Value="True" />
+                                    </MultiTrigger>
+                                </Button.Triggers>
+                            </material:MaterialButton>
+
+                            <!--</x:Array>
+                        </cards:CarouselView.ItemsSource>
+                    </cards:CarouselView>-->
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+                <StackLayout Grid.Row="2" Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
+                             Margin="20,0,20,10">
+                    <BoxView BackgroundColor="Gray" HorizontalOptions="FillAndExpand"
+                                     HeightRequest="2" VerticalOptions="Center"/>
+                    <Label Text="OR"/>
+                    <BoxView BackgroundColor="Gray" HorizontalOptions="FillAndExpand"
+                                     HeightRequest="2" VerticalOptions="Center"/>
+                </StackLayout>
+            </Grid>
+        </yummy:PancakeView>
+
+        <material:MaterialButton Text="Login" FontSize="Small" TextColor="Black" BackgroundColor="{StaticResource Scondarycolor}"
+                                         Command="{Binding LoginPageCommand}" ButtonType="Elevated" CornerRadius="4"
+                                         Grid.Row="1"/>
+    </Grid>
+</ContentPage>

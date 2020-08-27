@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:buziTrade.Pages" 
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation" 
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             material:MaterialNavigationPage.StatusBarColor="#1B3147"
+             x:Class="buziTrade.Pages.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <local:MultiTriggerConverter x:Key="dataHasBeenEntered" />
+
+            <xamanimation:FadeInAnimation
+                x:Key="FlexLayoutAnimation"
+                Target="{x:Reference MainPanel}" 
+                Duration="300"/>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource WelcomeColor}"
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <yummy:PancakeView x:Name="PancakeAnimate" 
+                                       BackgroundColor="#FFFFFF" CornerRadius="0,0,0,0"
+                                       Grid.Row="0">
+
+                <Grid x:Name="MainPanel">
+
+                        <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                    
+                    <Image Source="Logo.png" VerticalOptions="Start" 
+               HorizontalOptions="Center" WidthRequest="70" 
+               HeightRequest="70"
+               Margin="0, 40, 0, 0" Grid.Row="0"/>
+
+                    <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0" 
+                          Grid.Row="1">
+                            <StackLayout>
+
+                                <Label Text="*Login" TextColor="Gray" FontSize="Title"
+                               Margin="0,0,0,20"/>
+
+                                <material:MaterialTextField Margin="0,0,0,30"
+                    Placeholder="Email or Phone" x:Name="Email_Phone"
+                    InputType="Text" MaxLength="10" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False"/>
+
+                                <material:MaterialTextField 
+                    Placeholder="Password" x:Name="Password"
+                    InputType="Password" MaxLength="8" TintColor="#EC8D34"
+                    FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
+                    AlwaysShowUnderline="False"/>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="End"
+                             FlowDirection="RightToLeft" Margin="0,20,0,0">
+                                    <material:MaterialButton  BackgroundColor="{StaticResource Scondarycolor}"
+                          FontSize="Small" TextColor="Black"
+                          CornerRadius="5" Margin="15, 10, 0, 0" Text="Login" 
+                          ButtonType="Elevated" x:Name="BtnLog2" IsEnabled="False">
+                                        <Button.Triggers>
+                                            <MultiTrigger TargetType="Button">
+                                                <MultiTrigger.Conditions>
+                                                    <BindingCondition Binding="{Binding Source={x:Reference Email_Phone},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                                    <BindingCondition Binding="{Binding Source={x:Reference Password},
+                                Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered}}" 
+                                              Value="True"/>
+                                                </MultiTrigger.Conditions>
+                                                <Setter Property="IsEnabled" Value="True" />
+                                            </MultiTrigger>
+                                        </Button.Triggers>
+                                    </material:MaterialButton>
+                                    <material:MaterialButton 
+                            TextColor="Red" FontSize="13"
+                            ButtonType="Flat"
+                            BackgroundColor="Transparent"
+                            PressedBackgroundColor="Transparent"
+                            CornerRadius="5" Margin="0,10,0,0"
+                            Text="Forgot Password!"
+                            HorizontalOptions="EndAndExpand" />
+
+                                    <!--<material:MaterialButton
+                          CornerRadius="5" Margin="0, 10, 0, 0" 
+                          Text="Forgot Password!" BackgroundColor="#FFFFFF"
+                          TextColor="#FFFFFF"  ButtonType="Text" 
+                          PressedBackgroundColor="Transparent"          
+                          x:Name="Btnforgot" HorizontalOptions="EndAndExpand"/>-->
+                                </StackLayout>
+                            </StackLayout>
+                        
+                        <StackLayout Grid.Row="1" Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                            <BoxView BackgroundColor="Gray" HorizontalOptions="FillAndExpand"
+                                     HeightRequest="2" VerticalOptions="Center"/>
+                            <Label Text="OR"/>
+                            <BoxView BackgroundColor="Gray" HorizontalOptions="FillAndExpand"
+                                     HeightRequest="2" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </Grid>
+                    <!--<StackLayout VerticalOptions="End">
+                        <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                            <BoxView HorizontalOptions="StartAndExpand" VerticalOptions="Center" BackgroundColor="#275685" HeightRequest="2"
+                         WidthRequest="150"/>
+                            <Label Text="OR" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#275685"/>
+                            <BoxView HorizontalOptions="EndAndExpand" VerticalOptions="Center" BackgroundColor="#275685" HeightRequest="2"
+                         WidthRequest="150"/>
+                        </StackLayout>
+
+                    </StackLayout>-->
+
+                </Grid>
+            </yummy:PancakeView>
+            <material:MaterialButton Text="Register" FontSize="Small" TextColor="Black" BackgroundColor="{StaticResource Scondarycolor}"
+                                         Command="{Binding RegisterPageCommand}" ButtonType="Elevated" CornerRadius="4"
+                                         Grid.Row="1"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

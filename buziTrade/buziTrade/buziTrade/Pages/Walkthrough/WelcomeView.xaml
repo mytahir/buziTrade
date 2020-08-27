@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+               xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="buziTrade.Pages.Walkthrough.WelcomeView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <xamanimation:ColorAnimation
+                x:Key="BackgroundColorAnimation"
+                Target="{x:Reference MainPanel}"
+                ToColor="#FFFFFF"
+                Duration="250" />
+
+            <xamanimation:StoryBoard
+                x:Key="InfoPanelAnimation"
+                Target="{x:Reference InfoPanel}">
+                <xamanimation:FadeToAnimation
+                    Duration="50"
+                    Opacity="1" />
+                <xamanimation:TranslateToAnimation
+                    TranslateY="0"
+                    Easing="CubicIn"
+                    Duration="100" />
+            </xamanimation:StoryBoard>
+            
+            <!--<xamanimation:StoryBoard
+                x:Key="PancakeAnimation"
+                Target="{x:Reference PancakeAnimate}">
+                <xamanimation:FadeToAnimation
+                    Duration="1500"
+                    Opacity="1" />
+                <xamanimation:TranslateToAnimation
+                    TranslateY="0"
+                    Easing="CubicIn"
+                    Duration="1200" />
+            </xamanimation:StoryBoard>-->
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid x:Name="MainPanel"
+        BackgroundColor="#FFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="2.5*" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+
+        <forms:AnimationView
+            x:Name="animationView"
+            Grid.Row="0"
+            Animation="welcome.json"
+            AutoPlay="true"
+            Loop="True"
+            Speed="1"
+            Scale="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+        <StackLayout
+            x:Name="InfoPanel"
+            Padding="0,-24,0,0"
+            Grid.Row="1"
+            VerticalOptions="Start"
+            Opacity="0"
+            TranslationY="250">
+
+            <Label
+                Text="Hello!"
+                FontSize="24" Margin="0, 30, 0, 0"
+                TextColor="Gray"
+                HorizontalOptions="CenterAndExpand"/>
+            <Label
+                Style="{StaticResource TutorialInfo}"
+                TextColor="#8BCCC5">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            Text="Welcome to buziTrade, we provide the best Solutions to help you manage your Business." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </Grid>
+    
+</ContentView>

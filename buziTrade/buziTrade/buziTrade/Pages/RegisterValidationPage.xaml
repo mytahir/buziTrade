@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage  xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="buziTrade.Pages.RegisterValidationPage"
+             BackgroundColor="Transparent"
+             InputTransparent="True">
+    <popup:PopupPage.Content>
+        <Grid>
+            <yummy:PancakeView BackgroundColor="Black"
+                                VerticalOptions="EndAndExpand"
+                                CornerRadius="8" Opacity=".3"
+                                Padding="15" Margin="0,0,0,100">
+                <Label Text="All Fields Are Required!"
+                VerticalOptions="EndAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                TextColor="#FFFFFF"/>
+            </yummy:PancakeView>
+        </Grid>
+    </popup:PopupPage.Content>
+</popup:PopupPage>

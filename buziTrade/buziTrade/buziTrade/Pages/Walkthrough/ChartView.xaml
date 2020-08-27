@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation" 
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="buziTrade.Pages.Walkthrough.ChartView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <xamanimation:ColorAnimation
+                x:Key="BackgroundColorAnimation"
+                Target="{x:Reference MainPanel}"
+                ToColor="#FFFFFF"
+                Duration="250" />
+
+            <xamanimation:StoryBoard
+                x:Key="InfoPanelAnimation"
+                Target="{x:Reference InfoPanel}">
+                <xamanimation:FadeToAnimation
+                    Duration="50"
+                    Opacity="1" />
+                <xamanimation:TranslateToAnimation
+                    TranslateY="0"
+                    Easing="CubicIn"
+                    Duration="100" />
+            </xamanimation:StoryBoard>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid
+        x:Name="MainPanel"
+        BackgroundColor="#FFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="2.5*" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+        <forms:AnimationView
+            x:Name="LottieAnimation"
+            Grid.Row="0"
+            Animation="charts.json"
+            AutoPlay="true"
+            Loop="True"
+            Speed="1"
+            Scale="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+        <StackLayout
+            x:Name="InfoPanel"
+            Padding="0,-24,0,0"
+            Grid.Row="1"
+            VerticalOptions="Start"
+            Opacity="0"
+            TranslationY="250">
+
+            <Label
+                Text="Chart Support!"
+                Style="{StaticResource PageTitle}" Margin="0, 40, 0, 0"
+                TextColor="Gray"
+                HorizontalOptions="CenterAndExpand"/>
+            <Label
+                 TextColor="#8BCCC5"
+                Margin="48, 0"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="16">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            Text="Analysis, management makes it easy to grow Business with our Chart System." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!--<Grid>
+                <Button BackgroundColor="#FFFFFF" BorderColor="#275685"
+                          CornerRadius="20" 
+                          Margin="10" Text="Login" TextColor="#275685"
+                          WidthRequest="120" x:Name="BtnLog"
+                          HorizontalOptions="End" Clicked="BtnLog_Clicked"/>
+
+                <Button BackgroundColor="#FFFFFF" BorderColor="#275685"
+                          CornerRadius="20" Margin="10" Text="Register" 
+                          TextColor="#275685" WidthRequest="120"
+                          x:Name="btnReg" HorizontalOptions="Start"/>
+            </Grid>-->
+            </StackLayout>
+    </Grid>
+
+</ContentView>

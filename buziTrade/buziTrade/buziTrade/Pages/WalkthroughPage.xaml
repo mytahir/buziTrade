@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" 
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"   
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+             mc:Ignorable="d"
+             x:Class="buziTrade.Pages.WalkthroughPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!--<Style
+                TargetType="Label"
+                x:Key="SkipStyle">
+                <Setter
+                    Property="FontSize"
+                    Value="16" />
+                <Setter
+                    Property="TextColor"
+                    Value="#275685" />
+            </Style>-->
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource WelcomeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <yummy:PancakeView x:Name="PancakeAnimate" 
+                                       BackgroundColor="#FFFFFF" CornerRadius="0,0,0,0"
+                                       Grid.Row="0">
+                 <carousel:CarouselViewControl
+                x:Name="Carousel"
+                Orientation="Horizontal"
+                Position="0"
+                ShowIndicators="True"
+                IndicatorsTintColor="{StaticResource WelcomeColor}"
+                CurrentPageIndicatorTintColor="{StaticResource Scondarycolor}"
+                AnimateTransition="True"
+                InterPageSpacing="20"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                PositionSelected="OnCarouselPositionSelected"/>
+            </yummy:PancakeView>
+            
+
+            <!--<yummy:PancakeView BackgroundColor="#F48959" CornerRadius="0,0,0,80" Opacity="0.3"
+                                   VerticalOptions="Start" HorizontalOptions="Start"
+                                   HeightRequest="80" WidthRequest="80" />
+
+
+            <yummy:PancakeView BackgroundColor="#8BCCC5" CornerRadius="80,0,0,0" Opacity="0.5"
+                                   VerticalOptions="End" HorizontalOptions="End"
+                                   Margin="0" HeightRequest="60" WidthRequest="60" />
+
+            <yummy:PancakeView BackgroundColor="#275685" CornerRadius="0,90,0,0" Opacity="0.4"
+                                   VerticalOptions="End" HorizontalOptions="Start"
+                                   HeightRequest="60" WidthRequest="60" />
+
+            <yummy:PancakeView BackgroundColor="#EC7722" CornerRadius="0,0,80,0" Opacity="0.5" 
+                                   VerticalOptions="Start" HorizontalOptions="End"
+                                   HeightRequest="80" WidthRequest="80" />
+
+            <yummy:PancakeView BackgroundColor="#52ABCA" CornerRadius="50" Opacity="0.5"
+                                   VerticalOptions="Center" HorizontalOptions="Start"
+                                   HeightRequest="50" WidthRequest="50" />
+
+            <yummy:PancakeView BackgroundColor="#52ABCA" CornerRadius="50" Opacity="0.3"
+                                   VerticalOptions="Start" HorizontalOptions="End"
+                                   HeightRequest="50" WidthRequest="50" Margin="0,150,0,0"/>
+
+            <yummy:PancakeView BackgroundColor="#52ABCA" CornerRadius="50" Opacity="0.3"
+                                   VerticalOptions="End" HorizontalOptions="End"
+                                   HeightRequest="50" WidthRequest="50" Margin="0,0,0,150"/>-->
+
+            <!--<StackLayout Grid.Row="1" Orientation="Horizontal" Padding="20,0,0,0">
+                <BoxView x:Name="FirstIndicator" HorizontalOptions="Center" VerticalOptions="Center" 
+                         CornerRadius="50" WidthRequest="8" HeightRequest="8" Color="#FFC106"/>
+                <BoxView x:Name="SecondIndicator" HorizontalOptions="Center" VerticalOptions="Center" Color="#FFFFFF" 
+                         CornerRadius="50" WidthRequest="8" HeightRequest="8"/>
+                <BoxView x:Name="ThirdIndicator" HorizontalOptions="Center" VerticalOptions="Center" Color="#FFFFFF" 
+                         CornerRadius="50" WidthRequest="8" HeightRequest="8"/>
+
+            </StackLayout>-->
+            
+                <material:MaterialButton x:Name="btnSkip" Text="Skip" FontSize="Small" TextColor="Black" BackgroundColor="{StaticResource Scondarycolor}"
+                                         Command="{Binding LoginCommand}" ButtonType="Elevated" CornerRadius="4"
+                                         Grid.Row="1"/>
+            
+            <!--<Grid
+                Padding="8" Grid.Row="1"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                AutomationId="skip">
+                <Label Text="Skip"
+                    x:Name="lblSkip"
+                    Style="{StaticResource SkipStyle}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding LoginCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>-->
+              
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

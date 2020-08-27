@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="buziTrade.Pages.Walkthrough.CloudSync">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <xamanimation:ColorAnimation
+                x:Key="BackgroundColorAnimation"
+                Target="{x:Reference MainPanel}"
+                ToColor="#FFFFFF"
+                Duration="250" />
+
+            <xamanimation:StoryBoard
+                x:Key="InfoPanelAnimation"
+                Target="{x:Reference InfoPanel}">
+                <xamanimation:FadeToAnimation
+                    Duration="50"
+                    Opacity="1" />
+                <xamanimation:TranslateToAnimation
+                    TranslateY="0"
+                    Easing="CubicIn"
+                    Duration="100" />
+            </xamanimation:StoryBoard>
+
+            <xamanimation:StoryBoard
+                x:Key="PancakeAnimation"
+                Target="{x:Reference PancakeAnimate}">
+                <xamanimation:FadeToAnimation
+                    Duration="2000"
+                    Opacity="1" />
+                <xamanimation:TranslateToAnimation
+                    TranslateY="0"
+                    Easing="BounceIn"
+                    Duration="2000" />
+            </xamanimation:StoryBoard>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid
+        x:Name="MainPanel"
+        BackgroundColor="#FFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="2.5*" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+
+        <yummy:PancakeView x:Name="PancakeAnimate"  WidthRequest="30" HeightRequest="30"
+                           BackgroundColor="#FFFFFF" TranslationY="250" Grid.Row="0">
+
+        </yummy:PancakeView>
+
+        <forms:AnimationView
+            x:Name="LottieAnimation"
+            Grid.Row="0"
+            Animation="cloud_sync.json"
+            AutoPlay="true"
+            Loop="True"
+            Speed="1"
+            Scale="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+        <StackLayout
+            x:Name="InfoPanel"
+            Padding="0,-24,0,0"
+            Grid.Row="1"
+            VerticalOptions="Start"
+            Opacity="0"
+            TranslationY="250">
+            
+            <Label
+                Text="Cloud Support!"
+                Style="{StaticResource PageTitle}" Margin="0, 30, 0, 0"
+                TextColor="Gray"
+                HorizontalOptions="CenterAndExpand"/>
+            <Label
+                TextColor="#8BCCC5"
+                Margin="48, 0"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="16"
+                >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span 
+                            Text="Your Business is Safe, Access Data on Cloud on different devices, easily and secure." />
+                        </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+
+    </Grid>
+</ContentView>

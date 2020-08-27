@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage  
+             xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             mc:Ignorable="d"
+             x:Class="buziTrade.Pages.SwipePage"
+             NavigationPage.HasNavigationBar="False">
+    <popup:PopupPage.Content>
+        <Grid>
+          <forms:AnimationView
+            x:Name="animationView"
+            Animation="swipe.json"
+            AutoPlay="true"
+            Loop="True"
+            Speed="2"
+            Scale="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"/>
+            <Label Text="Swipe Left and Right on Register Form" FontSize="18" TextColor="White" 
+                   HorizontalOptions="Center" VerticalOptions="End"
+                   Margin="0,0,0,200"/>
+            <Button BackgroundColor="Transparent" 
+                Command="{Binding BackgroundClicked}"
+                />
+        </Grid>
+        
+    </popup:PopupPage.Content>
+</popup:PopupPage>

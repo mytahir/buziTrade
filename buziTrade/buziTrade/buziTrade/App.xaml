@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:mtrl="clr-namespace:XF.Material.Forms.Resources;assembly=XF.Material" xmlns:mtrltypo="clr-namespace:XF.Material.Forms.Resources.Typography;assembly=XF.Material"
+             x:Class="buziTrade.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <Color
+                x:Key="SignupLogin">#FFFFFF</Color>
+
+            <Color
+                x:Key="ChartView">#F48959</Color>
+
+            <Color
+                x:Key="CloudSync">#8BCCC5</Color>
+
+            <Color
+                x:Key="WelcomeColor">#275685</Color>
+
+            <Color
+                x:Key="ChartBackground">#EC7722</Color>
+            
+            <Color
+                x:Key="Scondarycolor">#ffc106</Color>
+
+            <Color
+                x:Key="CloudBackground">#52ABCA</Color>
+
+            <Style
+                TargetType="Label"
+                x:Key="PageTitle">
+                <Setter
+                    Property="FontSize"
+                    Value="24" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="TextColor"
+                    Value="#FFFFFF" />
+                <Setter
+                    Property="Margin"
+                    Value="0, 0, 0, 6" />
+            </Style>
+
+            <Style
+                TargetType="Label"
+                x:Key="TutorialInfo">
+                <Setter
+                    Property="FontSize"
+                    Value="16" />
+                <Setter
+                    Property="TextColor"
+                    Value="Black" />
+                <Setter
+                    Property="Margin"
+                    Value="48, 0" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="CenterAndExpand" />
+            </Style>
+
+
+
+        </ResourceDictionary>
+
+        <OnPlatform x:Key="FontFamily.RobotoRegular"
+                    x:TypeArguments="x:String"
+                    Android="Fonts/Roboto-Regular.ttf#Roboto-Regular"
+                    iOS="Roboto-Regular"/>
+
+        <OnPlatform x:Key="FontFamily.RobotoMedium"
+                    x:TypeArguments="x:String"
+                    Android="Fonts/Roboto-Medium.ttf#Roboto-Medium"
+                    iOS="Roboto-Medium"/>
+
+        <mtrltypo:MaterialFontConfiguration x:Key="Material.Font"
+            Body1="{StaticResource FontFamily.RobotoRegular}"
+            Body2="{StaticResource FontFamily.RobotoRegular}"
+            Button="{StaticResource FontFamily.RobotoMedium}"
+            Caption="{StaticResource FontFamily.RobotoRegular}"
+            H1="{StaticResource FontFamily.RobotoRegular}"
+            H2="{StaticResource FontFamily.RobotoRegular}"                                
+            H3="{StaticResource FontFamily.RobotoRegular}"                                
+            H4="{StaticResource FontFamily.RobotoRegular}"   
+            H5="{StaticResource FontFamily.RobotoRegular}"                                
+            H6="{StaticResource FontFamily.RobotoRegular}"/>
+        <mtrl:MaterialColorConfiguration x:Key="Material.Color"
+            Background="#EAEAEA"
+            Error="#B00020"
+            OnBackground="#000000"
+            OnError="#FFFFFF"
+            OnPrimary="#FFFFFF"
+            OnSecondary="#FFFFFF"
+            OnSurface="#000000"
+            Primary="#011A27"
+            PrimaryVariant="#0000FF"
+            Secondary="#063852"
+            SecondaryVariant="#001229"
+            Surface="#FFFFFF"/>
+        <mtrl:MaterialConfiguration x:Key="Material.Configuration"
+            ColorConfiguration="{StaticResource Material.Color}"
+            FontConfiguration="{StaticResource Material.Font}"/>
+
+    </Application.Resources>
+</Application>

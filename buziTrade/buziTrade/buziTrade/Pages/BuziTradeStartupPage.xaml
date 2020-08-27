@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:io="clr-namespace:System.IO;assembly=netstandard"
+             mc:Ignorable="d"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"              x:Class="buziTrade.Pages.BuziTradeStartupPage"
+             material:MaterialNavigationPage.StatusBarColor="#1B3147"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <xamanimation:ColorAnimation
+                x:Key="BackgroundColorAnimation"
+                Target="{x:Reference MainPanel}"
+                ToColor="Blue"
+                Duration="250" />
+
+            <!--<xamanimation:JumpAnimation 
+                x:Key="JumpAnimation"
+                Target="{x:Reference PancakeAnimate}"
+                Duration="1500"/>-->
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid  x:Name="MainPanel">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <!--<Label Text="buzyTrade" TextColor="#FFFFFF" Margin="20,10,0,5"/>-->
+
+                 <!--<Label HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center" Margin="0,40,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                    <Span Text="buziTrade" FontAttributes="Bold" FontSize="Body" TextColor="#1A3365"/>
+                                <Span Text=" is aimed to give Solutions "/>
+                            </FormattedString>
+                        </Label.FormattedText>        
+                    </Label>-->
+
+            <Image Source="Logo.png"
+               WidthRequest="60" 
+               HeightRequest="60" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                    <forms:AnimationView
+            x:Name="LottieAnimation"
+            Animation="loading.json"
+            AutoPlay="true"
+            Loop="True"
+            Speed="1"
+            Scale="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand" 
+            Margin="0,0,0,20"
+            HeightRequest="60"
+            IsVisible="{Binding IsBusy}"/>
+               
+            
+            
+
+            
+
+            <!--<yummy:PancakeView BackgroundColor="#8BCCC5" CornerRadius="80,0,0,0" Opacity="0.5"
+                                   VerticalOptions="End" HorizontalOptions="End"
+                                   Margin="0" HeightRequest="60" WidthRequest="60" />
+
+            <yummy:PancakeView BackgroundColor="#275685" CornerRadius="0,90,0,0" Opacity="0.4"
+                                   VerticalOptions="End" HorizontalOptions="Start"
+                                   HeightRequest="60" WidthRequest="60" />
+
+            <yummy:PancakeView BackgroundColor="#EC7722" CornerRadius="0,0,80,0" Opacity="0.5" 
+                                   VerticalOptions="Start" HorizontalOptions="End"
+                                   HeightRequest="80" WidthRequest="80" />
+
+            <yummy:PancakeView BackgroundColor="#52ABCA" CornerRadius="50" Opacity="0.5"
+                                   VerticalOptions="Center" HorizontalOptions="Start"
+                                   HeightRequest="50" WidthRequest="50" />
+
+            <yummy:PancakeView BackgroundColor="#52ABCA" CornerRadius="50" Opacity="0.3"
+                                   VerticalOptions="Start" HorizontalOptions="End"
+                                   HeightRequest="50" WidthRequest="50" Margin="0,150,0,0"/>
+
+            <yummy:PancakeView BackgroundColor="#52ABCA" CornerRadius="50" Opacity="0.3"
+                                   VerticalOptions="End" HorizontalOptions="End"
+                                   HeightRequest="50" WidthRequest="50" Margin="0,0,0,150"/>-->
+            <!--<ActivityIndicator
+            x:Name="StartupIndicator"
+            HorizontalOptions="Center" VerticalOptions="End"
+            Color="#275685" WidthRequest="40" HeightRequest="40"
+            Margin="0,0,0,20" IsRunning="{Binding IsBusy}"/>-->
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
