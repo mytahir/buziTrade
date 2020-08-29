@@ -64,7 +64,7 @@
                             <x:Array Type="{x:Type View}">
                                 <StackLayout>-->
                     <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Always">
-                        <StackLayout Spacing="30">
+                        <StackLayout Spacing="50">
                             <material:MaterialTextField
                     Placeholder="Full Name" x:Name="FullName"
                     InputType="Text" MaxLength="10" TintColor="#EC8D34"
@@ -166,7 +166,7 @@
                 </Grid>
                 <StackLayout Grid.Row="2" Orientation="Horizontal"
                              HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
-                             Margin="20,0,20,10">
+                             Margin="20,0,20,8">
                     <BoxView BackgroundColor="Gray" HorizontalOptions="FillAndExpand"
                                      HeightRequest="2" VerticalOptions="Center"/>
                     <Label Text="OR"/>

@@ -49,12 +49,12 @@
 
                     <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0" 
                           Grid.Row="1">
-                            <StackLayout>
+                            <StackLayout Spacing="50">
 
                                 <Label Text="*Login" TextColor="Gray" FontSize="Title"
                                Margin="0,0,0,20"/>
 
-                                <material:MaterialTextField Margin="0,0,0,30"
+                                <material:MaterialTextField
                     Placeholder="Email or Phone" x:Name="Email_Phone"
                     InputType="Text" MaxLength="10" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
