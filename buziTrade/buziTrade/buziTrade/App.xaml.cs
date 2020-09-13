@@ -8,6 +8,7 @@ namespace buziTrade
 {
     public partial class App : Application
     {
+        public static string DatabaseLocation = string.Empty;
         public App()
         {
             InitializeComponent();
@@ -19,6 +20,20 @@ namespace buziTrade
             var firstNavigation = new FreshNavigationContainer(startUp);
             MainPage = firstNavigation;
 
+        }
+
+        public App(string databaseLocation)
+        {
+            InitializeComponent();
+
+            XF.Material.Forms.Material.Init(this, "Material.Configuration");
+            XF.Material.Forms.Material.Init(this);
+
+            var startUp = FreshPageModelResolver.ResolvePageModel<BuziTradeStartupPageModel>();
+            var firstNavigation = new FreshNavigationContainer(startUp);
+            MainPage = firstNavigation;
+
+            DatabaseLocation = databaseLocation;
         }
 
         protected override void OnStart()

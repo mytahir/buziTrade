@@ -9,6 +9,9 @@ using Android.OS;
 using Lottie.Forms.Droid;
 using PanCardView.Droid;
 using Xamarin.Forms.PancakeView;
+using Android.Graphics;
+using System.IO;
+using Xamarin.Forms.Shapes;
 
 namespace buziTrade.Droid
 {
@@ -34,7 +37,14 @@ namespace buziTrade.Droid
             AnimationViewRenderer.Init();
             CardsViewRenderer.Preserve();
 
-            LoadApplication(new App());
+
+            string dbName = "buzyTrade_db.sqlite";
+
+            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+
+            string fullPath = System.IO.Path.Combine(folderPath, dbName);
+
+            LoadApplication(new App(fullPath));
 
         }
 

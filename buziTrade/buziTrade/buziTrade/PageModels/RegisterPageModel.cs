@@ -104,6 +104,19 @@ namespace buziTrade.PageModels
             }
         }
 
+        private string phoneHasError { get; set; }
+
+        public string PhoneHasError
+        {
+            get { return phoneHasError; }
+            set 
+            { 
+                phoneHasError = value;
+                RaisePropertyChanged("PhoneHasError");
+            }
+        }
+
+
 
         private bool isSwipeEnabled { get; set; }
 
@@ -111,6 +124,24 @@ namespace buziTrade.PageModels
 
         public ICommand LoginPageCommand => new Command(async () => await LoginPage());
         //public ICommand OnRegister => new Command(async () => await RegisterUser());
+
+        public ICommand PhoneNumberCommand => new Command(async () => await PhoneNumberValidation());
+
+        private async Task PhoneNumberValidation()
+        {
+            PhoneHasError = "False";
+            
+            if (PhoneNo.Length < 11)
+            {
+                await Task.Delay(1000);
+                 PhoneHasError = "True";
+            }
+
+            else
+            {
+                phoneHasError = "false";
+            }
+        }
 
         public RegisterPageModel()
         {

@@ -64,59 +64,70 @@
                             <x:Array Type="{x:Type View}">
                                 <StackLayout>-->
                     <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Always">
-                        <StackLayout Spacing="50">
+                        <StackLayout Spacing="40">
                             <material:MaterialTextField
                     Placeholder="Full Name" x:Name="FullName"
                     InputType="Text" MaxLength="10" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" Text="{Binding FullName}"/>
+                    AlwaysShowUnderline="False" Text="{Binding FullName}"
+                    ReturnType="Next"/>
 
                             <material:MaterialTextField
                     Placeholder="Contact Address" x:Name="ConAddress"
                     InputType="Text" MaxLength="11" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" Text="{Binding ConAddress}"/>
+                    AlwaysShowUnderline="False" Text="{Binding ConAddress}"
+                    ReturnType="Next"/>
 
                             <material:MaterialTextField
                     Placeholder="Phone Number" x:Name="PhoneNo"
                     InputType="Telephone" MaxLength="11" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" Text="{Binding PhoneNo}"/>
+                    AlwaysShowUnderline="False" Text="{Binding PhoneNo}"
+                    ReturnType="Next" TextChangeCommand="{Binding PhoneNumberCommand}"
+                    ErrorColor="Red" ErrorText="Invalid Phone Number" HasError="{Binding PhoneHasError}"/>
 
                             <material:MaterialTextField
                     Placeholder="Business Name" x:Name="BusinessName"
                     InputType="Text" MaxLength="10" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" Text="{Binding BusinessName}"/>
+                    AlwaysShowUnderline="False" Text="{Binding BusinessName}"
+                    ReturnType="Next"/>
+                            
                             <material:MaterialTextField
                     Placeholder="Business Address" x:Name="BusinessAddress"
                     InputType="Text" MaxLength="20" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" Text="{Binding BusinessAddress}"/>
+                    AlwaysShowUnderline="False" Text="{Binding BusinessAddress}"
+                    ReturnType="Next"/>
+                            
                             <material:MaterialTextField
                     Placeholder="Business Email" x:Name="BusinessEmail"
                     InputType="Text" MaxLength="20" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" Text="{Binding BusinessEmail}"/>
+                    AlwaysShowUnderline="False" Text="{Binding BusinessEmail}"
+                    ReturnType="Next"/>
 
                             <material:MaterialTextField
                     Placeholder="Password" x:Name="Password"
                     InputType="Password" MaxLength="8" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" Text="{Binding Password}"/>
+                    AlwaysShowUnderline="False" Text="{Binding Password}"
+                    ReturnType="Next"/>
 
                             <material:MaterialTextField
                     Placeholder="Re-Password" x:Name="Re_Password"
                     InputType="Password" MaxLength="8" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" Text="{Binding RePassword}"/>
+                    AlwaysShowUnderline="False" Text="{Binding RePassword}"
+                    ReturnType="Done"/>
 
                             <material:MaterialButton  BackgroundColor="{StaticResource Scondarycolor}"
                           CornerRadius="5" Text="Register" 
                           TextColor="Black"  ButtonType="Elevated"          
                           x:Name="BtnLog2" HorizontalOptions="End"
-                          VerticalOptions="Start" Command="{Binding RegisterCommand}"
-                          Margin="0,0,0,60" IsEnabled="False">
+                          VerticalOptions="Start" Command="{Binding RegisterUserCommand}"
+                          Margin="0,0,0,60" IsEnabled="True">
                                 <Button.Triggers>
                                     <MultiTrigger TargetType="Button">
                                         <MultiTrigger.Conditions>

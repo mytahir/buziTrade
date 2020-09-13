@@ -49,28 +49,27 @@
 
                     <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0" 
                           Grid.Row="1">
-                            <StackLayout Spacing="50">
+                            <StackLayout Spacing="40">
 
-                                <Label Text="*Login" TextColor="Gray" FontSize="Title"
-                               Margin="0,0,0,20"/>
+                                <Label Text="*Login" TextColor="Gray" FontSize="Title"/>
 
                                 <material:MaterialTextField
                     Placeholder="Email or Phone" x:Name="Email_Phone"
                     InputType="Text" MaxLength="10" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False"/>
+                    AlwaysShowUnderline="False" ReturnType="Next"/>
 
                                 <material:MaterialTextField 
                     Placeholder="Password" x:Name="Password"
                     InputType="Password" MaxLength="8" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False"/>
+                    AlwaysShowUnderline="False" ReturnType="Done"/>
 
                                 <StackLayout Orientation="Horizontal" VerticalOptions="End"
                              FlowDirection="RightToLeft" Margin="0,20,0,0">
                                     <material:MaterialButton  BackgroundColor="{StaticResource Scondarycolor}"
                           FontSize="Small" TextColor="Black"
-                          CornerRadius="5" Margin="15, 10, 0, 0" Text="Login" 
+                          CornerRadius="5" Margin="15, 0, 0, 0" Text="Login" 
                           ButtonType="Elevated" x:Name="BtnLog2" IsEnabled="False">
                                         <Button.Triggers>
                                             <MultiTrigger TargetType="Button">
@@ -93,7 +92,7 @@
                             ButtonType="Flat"
                             BackgroundColor="Transparent"
                             PressedBackgroundColor="Transparent"
-                            CornerRadius="5" Margin="0,10,0,0"
+                            CornerRadius="5" Margin="0,0,0,0"
                             Text="Forgot Password!"
                             HorizontalOptions="EndAndExpand" />
 
