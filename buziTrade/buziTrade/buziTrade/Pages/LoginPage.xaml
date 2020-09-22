@@ -55,20 +55,21 @@
 
                                 <material:MaterialTextField
                     Placeholder="Email or Phone" x:Name="Email_Phone"
-                    InputType="Text" MaxLength="10" TintColor="#EC8D34"
+                    InputType="Text" MaxLength="20" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" ReturnType="Next"/>
+                    AlwaysShowUnderline="False" ReturnType="Next" Text="{Binding EmailorPhone}"/>
 
                                 <material:MaterialTextField 
                     Placeholder="Password" x:Name="Password"
-                    InputType="Password" MaxLength="8" TintColor="#EC8D34"
+                    InputType="Password" MaxLength="20" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
-                    AlwaysShowUnderline="False" ReturnType="Done"/>
+                    AlwaysShowUnderline="False" ReturnType="Done" Text="{Binding Password}"
+                                    ReturnCommand="{Binding LoginUserCommand}"/>
 
-                                <StackLayout Orientation="Horizontal" VerticalOptions="End"
+                            <StackLayout Orientation="Horizontal" VerticalOptions="End"
                              FlowDirection="RightToLeft" Margin="0,20,0,0">
-                                    <material:MaterialButton  BackgroundColor="{StaticResource Scondarycolor}"
-                          FontSize="Small" TextColor="Black"
+                                <material:MaterialButton  BackgroundColor="{StaticResource Scondarycolor}"
+                          FontSize="Small" TextColor="Black" Command="{Binding LoginUserCommand}"
                           CornerRadius="5" Margin="15, 0, 0, 0" Text="Login" 
                           ButtonType="Elevated" x:Name="BtnLog2" IsEnabled="False">
                                         <Button.Triggers>
@@ -87,6 +88,7 @@
                                             </MultiTrigger>
                                         </Button.Triggers>
                                     </material:MaterialButton>
+                                    
                                     <material:MaterialButton 
                             TextColor="Red" FontSize="13"
                             ButtonType="Flat"
@@ -105,7 +107,7 @@
                                 </StackLayout>
                             </StackLayout>
                         
-                        <StackLayout Grid.Row="1" Orientation="Horizontal"
+                        <StackLayout  Grid.Row="1" Orientation="Horizontal"
                                      HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
                             <BoxView BackgroundColor="Gray" HorizontalOptions="FillAndExpand"
                                      HeightRequest="2" VerticalOptions="Center"/>

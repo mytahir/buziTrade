@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XF.Material.Forms.UI.Dialogs;
 
 namespace buziTrade.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class MainPage : ContentPage
     {
-        public LoginPage()
+        public MainPage()
         {
             InitializeComponent();
         }
-
     }
 }

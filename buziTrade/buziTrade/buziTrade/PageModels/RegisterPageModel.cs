@@ -7,12 +7,14 @@ using Xamarin.Forms;
 using FreshMvvm.Popups;
 using XF.Material.Forms.UI.Dialogs;
 using buziTrade.Pages;
+using buziTrade.Model;
 
 namespace buziTrade.PageModels
 {
     [AddINotifyPropertyChangedInterface]
     public class RegisterPageModel : FreshBasePageModel
     {
+        Users users = new Users();
 
         private string fullName { get; set; }
 
@@ -109,8 +111,8 @@ namespace buziTrade.PageModels
         public string PhoneHasError
         {
             get { return phoneHasError; }
-            set 
-            { 
+            set
+            {
                 phoneHasError = value;
                 RaisePropertyChanged("PhoneHasError");
             }
@@ -130,11 +132,11 @@ namespace buziTrade.PageModels
         private async Task PhoneNumberValidation()
         {
             PhoneHasError = "False";
-            
+
             if (PhoneNo.Length < 11)
             {
                 await Task.Delay(1000);
-                 PhoneHasError = "True";
+                PhoneHasError = "True";
             }
 
             else
@@ -180,13 +182,36 @@ namespace buziTrade.PageModels
             }
             else
             {
+                
                 //await MaterialDialog.Instance.LoadingDialogAsync(message: "Registering your Account...");
                 using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Registering your Account..."))
                 {
-                    await Task.Delay(3000); // Represents a task that is running.
-                }
-                await Task.Delay(3000);
+                    await Task.Delay(5000); // Represents a task that is running.
+
+                     App.Database.SaveUserAsync(new Users
+                {
+                    FullName = fullName,
+                    ContactAdress = conAddress,
+                    PhoneNumber = phoneNo,
+                    BusinessName = businessName,
+                    BusinessAddress = businessAddress,
+                    BusinessEmail = businessEmail,
+                    Password = password
+                });
+                    if (App.Database.SaveUserAsync(users) == "Added Successfully!")
+                    {
+
+                await Task.Delay(1000);
                 await MaterialDialog.Instance.AlertAsync(message: "Registration Successful!");
+                await CoreMethods.PushPageModel<LoginPageModel>();
+                CoreMethods.RemoveFromNavigation<RegisterPageModel>(true);
+                    }
+                    else
+                    {
+                        await MaterialDialog.Instance.AlertAsync(message: "Business Name already exists!");
+                        return;
+                    }
+                }
             }
 
         }

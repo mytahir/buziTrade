@@ -67,14 +67,14 @@
                         <StackLayout Spacing="40">
                             <material:MaterialTextField
                     Placeholder="Full Name" x:Name="FullName"
-                    InputType="Text" MaxLength="10" TintColor="#EC8D34"
+                    InputType="Text" MaxLength="20" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
                     AlwaysShowUnderline="False" Text="{Binding FullName}"
                     ReturnType="Next"/>
 
                             <material:MaterialTextField
                     Placeholder="Contact Address" x:Name="ConAddress"
-                    InputType="Text" MaxLength="11" TintColor="#EC8D34"
+                    InputType="Text" MaxLength="20" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
                     AlwaysShowUnderline="False" Text="{Binding ConAddress}"
                     ReturnType="Next"/>
@@ -89,7 +89,7 @@
 
                             <material:MaterialTextField
                     Placeholder="Business Name" x:Name="BusinessName"
-                    InputType="Text" MaxLength="10" TintColor="#EC8D34"
+                    InputType="Text" MaxLength="20" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
                     AlwaysShowUnderline="False" Text="{Binding BusinessName}"
                     ReturnType="Next"/>
@@ -110,24 +110,24 @@
 
                             <material:MaterialTextField
                     Placeholder="Password" x:Name="Password"
-                    InputType="Password" MaxLength="8" TintColor="#EC8D34"
+                    InputType="Password" MaxLength="10" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
                     AlwaysShowUnderline="False" Text="{Binding Password}"
                     ReturnType="Next"/>
 
                             <material:MaterialTextField
                     Placeholder="Re-Password" x:Name="Re_Password"
-                    InputType="Password" MaxLength="8" TintColor="#EC8D34"
+                    InputType="Password" MaxLength="10" TintColor="#EC8D34"
                     FloatingPlaceholderFontSize="10" ShouldAnimateUnderline="True"
                     AlwaysShowUnderline="False" Text="{Binding RePassword}"
-                    ReturnType="Done"/>
+                    ReturnType="Done" ReturnCommand="{Binding RegisterUserCommand}"/>
 
                             <material:MaterialButton  BackgroundColor="{StaticResource Scondarycolor}"
                           CornerRadius="5" Text="Register" 
                           TextColor="Black"  ButtonType="Elevated"          
                           x:Name="BtnLog2" HorizontalOptions="End"
                           VerticalOptions="Start" Command="{Binding RegisterUserCommand}"
-                          Margin="0,0,0,60" IsEnabled="True">
+                          Margin="0,0,0,60" IsEnabled="False">
                                 <Button.Triggers>
                                     <MultiTrigger TargetType="Button">
                                         <MultiTrigger.Conditions>
